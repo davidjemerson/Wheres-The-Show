@@ -5,7 +5,42 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
-
+nav {
+    margin: 0;
+}
 main {
     flex: 1 0 auto;
+}
+
+.darken-1 {
+    margin-top: 20px;
+
+}
+
+
+.row .col.l12 {
+    margin: 0;
+    height: 110px;
+    margin-top: -30px;
+    
+}
+
+.nav-wrapper {
+    border-bottom: solid black 2px;
+}
+
+.page-footer {
+    border-top:  solid black 2px;
+}
+
+.footer-copyright {
+    border-top:  solid black 2px;
+}
+
+.form-actions {
+    margin: 0;
+    text-align: center;
+    
+
+    
 }
