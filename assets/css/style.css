@@ -51,3 +51,7 @@ main {
 .no-padding{
     margin-bottom: -25px;
 }
+
+.brand-logo, a{
+    color: black;
+}
