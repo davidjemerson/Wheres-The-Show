@@ -1,10 +1,12 @@
 
+<<<<<<< HEAD
 $("#copyright-year").text(moment().year());
 
 // Collapses modal
 $('#btn-primary').on('shown.bs.modal', function () {
     $('#myInput').focus()
   })
+
 $("#add_artist").on('click', function(event) {
 	event.preventDefault();
 	var artist = $("#artist_name").val().trim();
@@ -37,3 +39,4 @@ $("#add_artist").on('click', function(event) {
 })
 
 $("#copyright-year").text(moment().year());
+>>>>>>> javascript
