@@ -5,36 +5,24 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
-nav {
-    margin: 0;
-}
+
 main {
     flex: 1 0 auto;
 }
 
-.darken-1 {
-    margin-top: 20px;
-
-}
-
-
-.row .col.l12 {
+.form-actions {
     margin: 0;
-    height: 110px;
-    margin-top: -30px;
-    
-}
-
-.nav-wrapper {
-    border-bottom: solid black 2px;
+    text-align: center;    
 }
 
 .page-footer {
-    border-top:  solid black 2px;
+    margin: 0;
+    padding: 0;
 }
 
-.footer-copyright {
-    border-top:  solid black 2px;
+.footer-links {
+    color: #fff;
+    font-weight: 300;
 }
 
 .form-actions {
