@@ -14,14 +14,24 @@
 <body>
     <header>
         <div class="navbar-fixed">
-            <nav>
+            <nav style="height: 110px">
                 <div class="nav-wrapper">
                     <div class="container">
                         <a href="#" class="brand-logo center">Where's the Show?</a>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                           Click for more info!
-                        </button>
-                        
+                        <!-- Modal Trigger -->
+
+                        <button class="btn" id="modalTrigger">Click Here For More Information</button>
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h4>Info</h4>
+                                <p>Welcome to Where's the show! On this website you will be able to search upcoming shows where you are located. You can search by artist name, location and by dates.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -77,12 +87,12 @@
     </header>
 
     <main>
-        
+
     </main>
 
     <footer class="page-footer">
         <div class="container">
-            <div class="row" >
+            <div class="row">
                 <div class="col l12 s12  center-align">
                     <h5 class="white-text">Created by:</h5>
                     <ul>
@@ -112,7 +122,9 @@
         crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
+            
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
