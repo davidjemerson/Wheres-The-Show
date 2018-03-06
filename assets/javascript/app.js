@@ -1,8 +1,12 @@
+$(document).ready(function(){
+  $('select').formSelect();
+});
 
 $("#copyright-year").text(moment().year());
 
 // Collapses modal
 $('#btn-primary').on('shown.bs.modal', function () {
+
     $('#myInput').focus()
   })
 
@@ -30,14 +34,13 @@ $("#add_artist").on('click', function(event) {
 		console.log(object);
 	})
 
-	$.ajax({
-		url: youtubeDataQuery,
-		method: 'GET'
-	}).then(function(object) {
-		console.log(object);
-	})
+  $.ajax({
+    url: youtubeDataQuery,
+    method: 'GET'
+  }).then(function (object) {
+    console.log(object);
+  })
 
 })
 
 $("#copyright-year").text(moment().year());
-
