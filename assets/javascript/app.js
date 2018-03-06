@@ -1,29 +1,40 @@
-$(document).ready(function(){
-  $('select').formSelect();
+$(document).ready(function () {
+	$('select').formSelect();
 });
 
 $("#copyright-year").text(moment().year());
 
 // Collapses modal
-$( document ).ready(function() {
-  $('.modal').modal();
-  
-  $('#modalTrigger').on('click', function() {
-    $('#modal1').modal('open');
-  });
+$(document).ready(function () {
+	$('.modal').modal();
+
+	$('#modalTrigger').on('click', function () {
+		$('#modal1').modal('open');
+	});
 });
+
+// Collapsible for main content
+
+$(document).ready(function () {
+	$('.collapsible').collapsible();
+});
+
+// Populate collapibles? 
+
+
+
 $('#btn-primary').on('shown.bs.modal', function () {
 
-    $('#myInput').focus()
-  })
+	$('#myInput').focus()
+})
 
-$("#add_artist").on('click', function(event) {
+$("#add_artist").on('click', function (event) {
 	event.preventDefault();
 	var artist = $("#artist_name").val().trim();
-	artist = artist.replace(/\s+/g,"+");
+	artist = artist.replace(/\s+/g, "+");
 	console.log(artist);
 	var location = $("#location").val().trim();
-	location = location.replace(/\s+/g,"+");
+	location = location.replace(/\s+/g, "+");
 	console.log(location);
 	var ticketmasterKey = "GMb9kWGBfHFrWOyKbZNww60Bsf54F5LU";
 	// var eventfulKey = "KP59BCKSVm4x73p7";
@@ -37,16 +48,16 @@ $("#add_artist").on('click', function(event) {
 	$.ajax({
 		url: ticketmasterQuery,
 		method: 'GET'
-	}).then(function(object) {
+	}).then(function (object) {
 		console.log(object);
 	})
 
-  $.ajax({
-    url: youtubeDataQuery,
-    method: 'GET'
-  }).then(function (object) {
-    console.log(object);
-  })
+	$.ajax({
+		url: youtubeDataQuery,
+		method: 'GET'
+	}).then(function (object) {
+		console.log(object);
+	})
 
 })
 
