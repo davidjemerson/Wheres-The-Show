@@ -19,35 +19,31 @@
                     <div class="container">
                         <a href="#" class="brand-logo center">Where's the Show?</a>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                           Click for more info!
+                            How to use!
                         </button>
-                        
+
                     </div>
                 </div>
             </nav>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col s12 m2">
-                </div>
-                <div class="col s12 m8">
-                    <div class="card darken-1">
+                <div class="col s12 m12">
+                    <div class="card input-card darken-1">
                         <div class="card-content">
                             <span class="card-title"></span>
                             <div class="row">
                                 <form class="col s12">
                                     <div class="row">
-                                        <div class="input-field col s6">
+                                        <div class="input-field col m4 s12">
                                             <input id="artist_name" type="text" class="validate">
                                             <label class="active" for="artist_name">Artist Name</label>
                                         </div>
-                                        <div class="input-field col s6">
+                                        <div class="input-field col m4 s12">
                                             <input id="location" type="text" class="validate">
                                             <label class="active" for="location">Your Location</label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
+                                        <div class="input-field col m4 s12">
                                             <select>
                                                 <option value="" disabled selected>Choose your option</option>
                                                 <option value="1">30</option>
@@ -59,7 +55,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                            <button id="add_artist" class="btn waves-effect waves-light" type="submit" name="action">Submit
                                                 <i class="material-icons right">send</i>
                                             </button>
                                         </div>
@@ -69,47 +65,29 @@
                         </div>
                     </div>
                 </div>
-                <div class="col s12 m2">
-                </div>
             </div>
         </div>
 
     </header>
 
     <main>
-        
+
     </main>
 
     <footer class="page-footer">
-        <div class="container">
-            <div class="row" >
-                <div class="col l12 s12  center-align">
-                    <h5 class="white-text">Created by:</h5>
-                    <ul>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="https://github.com/davidjemerson" target="_blank">David Emerson</a>
-                        </li>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="https://github.com/RaglandPC" target="_blank">Jake Ragland</a>
-                        </li>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="https://github.com/zmuenz" target="_blank">Zack Muenz</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright" style="background: #ee6e73">
+        <div class="footer-copyright">
             <div class="container center-align">
                 ©
-                <span id="copyright-year"></span> David Emerson, Jake Ragland, &amp; Zack Muenz
+                <span id="copyright-year"></span>
+                <a class="footer-links" href="https://github.com/davidjemerson" target="_blank">David Emerson</a>,
+                <a class="footer-links" href="https://github.com/RaglandPC" target="_blank">Jake Ragland</a>, &amp;
+                <a class="footer-links" href="https://github.com/zmuenz" target="_blank">Zack Muenz</a>
             </div>
         </div>
     </footer>
 
     <!-- Jquery and Javascript links -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
