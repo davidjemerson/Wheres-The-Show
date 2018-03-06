@@ -28,3 +28,7 @@ main {
 .input-card {
     margin-top: -5px;
 }
+
+.no-padding{
+    margin-bottom: -25px;
+}

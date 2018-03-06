@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Where's the Show?</title>
 </head>
@@ -34,26 +34,26 @@
                             <span class="card-title"></span>
                             <div class="row">
                                 <form class="col s12">
-                                    <div class="row">
+                                    <div class="row no-padding">
                                         <div class="input-field col m4 s12">
-                                            <input id="artist_name" type="text" class="validate">
                                             <label class="active" for="artist_name">Artist Name</label>
+                                            <input id="artist_name" type="text" class="validate" placeholder="Enter artist name">
                                         </div>
                                         <div class="input-field col m4 s12">
-                                            <input id="location" type="text" class="validate">
                                             <label class="active" for="location">Your Location</label>
+                                            <input id="location" type="text" class="validate" placeholder="Enter your location">
                                         </div>
                                         <div class="input-field col m4 s12">
+                                            <label class="active">Materialize Select</label>
                                             <select>
-                                                <option value="" disabled selected>Choose your option</option>
+                                                <option value="" disabled="disabled" selected="selected">Choose your option</option>
                                                 <option value="1">30</option>
                                                 <option value="2">60</option>
                                                 <option value="3">90</option>
                                             </select>
-                                            <label class="active">Materialize Select</label>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row no-padding">
                                         <div class="input-field col s12">
                                             <button id="add_artist" class="btn waves-effect waves-light" type="submit" name="action">Submit
                                                 <i class="material-icons right">send</i>
@@ -90,7 +90,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 

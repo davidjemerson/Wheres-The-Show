@@ -1,3 +1,7 @@
+$(document).ready(function(){
+  $('select').formSelect();
+});
+
 $("#copyright-year").text(moment().year());
 
 // Collapses modal
