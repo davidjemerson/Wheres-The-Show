@@ -63,6 +63,14 @@ $("#add_artist").on('click', function (event) {
 			artistArray.push(newArtist);
 		}
 		console.log(artistArray);
+
+		if (artistArray.length > 0) {
+			$("#showHolder").html("");
+			for (var i = 0 ; i < artistArray.length ; i++) {
+				$("#showHolder").prepend("<li><div class='collapsible-header valign-wrapper'><i class='material-icons md-36'>queue_music</i><h5>" + artistArray[i].eventName + "</h5></div></li>");
+			}
+		}
+
 	})
 })
 
