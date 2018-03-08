@@ -1,6 +1,7 @@
 body {
     background-image: url('../images/concert.gif');
-    background-size: cover;
+    background-size: 100%;
+    background-repeat: repeat-y;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -47,7 +48,7 @@ main {
 }
 
 .no-padding{
-    margin-bottom: -25px;
+    margin-bottom: -35px;
 }
 
 .brand-logo, a{
@@ -55,19 +56,15 @@ main {
 }
 
 .collapsible {
-    width: auto;
-    position: absolute;
+    width: 90%;
     margin: 0 auto;
 }
 
 .collapsible-body {
-    background: white;
+    background: rgba(255, 255, 255, 0.938);
 }
 
 
-dl {
-  float: right;
-  margin-right: 500px;
- 
-
+#main-margin {
+    margin: 0 0 30px 0;
 }
