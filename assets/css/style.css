@@ -28,8 +28,6 @@ main {
 .form-actions {
     margin: 0;
     text-align: center;
-    
-    
 }
 
 .modal-content {
@@ -50,4 +48,26 @@ main {
 
 .no-padding{
     margin-bottom: -25px;
+}
+
+.brand-logo, a{
+    color: black;
+}
+
+.collapsible {
+    width: auto;
+    position: absolute;
+    margin: 0 auto;
+}
+
+.collapsible-body {
+    background: white;
+}
+
+
+dl {
+  float: right;
+  margin-right: 500px;
+ 
+
 }
