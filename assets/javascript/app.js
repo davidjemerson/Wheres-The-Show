@@ -15,9 +15,6 @@ $(document).ready(function () {
 
 $("#copyright-year").text(moment().year());
 
-// Populate collapibles? 
-
-
 
 $('#btn-primary').on('shown.bs.modal', function () {
 

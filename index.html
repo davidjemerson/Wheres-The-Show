@@ -24,9 +24,10 @@
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
                             <div class="modal-content">
-                                <h4>Info</h4>
-                                <p>Welcome to Where's the show! On this website you will be able to search upcoming shows where
-                                    you are located. You can search concerts by location and date.
+                                <h4>How to use Where's the Show</h4>
+                                <hr>
+                                <p>Welcome to Where's the show!</p>
+                                <p>On this website you will be able to search upcoming shows by location and date.
                                 </p>
                             </div>
                         </div>
@@ -69,34 +70,37 @@
 
     </header>
 
-    <main>
+    <main id="main-margin">
         <div class="container">
-            <table>
-                <ul class="collapsible">
-                    <li>
-                        <div class="collapsible-header">
-                            <i class="material-icons">queue_music</i>Band Name
-                        </div>
-                        <div class="collapsible-body">
-                            <ol>
-                                <iframe id="thumbnail"></iframe>
+            <ul class="collapsible popout">
+                <li>
+                    <div class="collapsible-header valign-wrapper">
+                        <i class="material-icons md-36">queue_music</i><h5>Artist Name</h5>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class=row>
+                            <div class="col m4 s12">
+                                <img class="thumbnail" src="http://via.placeholder.com/256x144"></img>
+                                <p class="no-margin center-align">(click thumbnail to open video)</p>
+                            </div>
+                            <div class="col m8 s12">
                                 <dl>
-                                    <dt class="info">Info:</dt>
+                                    <dt class="info"><h6>Info</h6></dt>
                                     <dd>......</dd>
                                     <br>
-                                    <dt class="dates">Dates:</dt>
+                                    <dt class="dates"><h6>Dates</h6></dt>
                                     <dd>.......</dd>
                                     <br>
-                                    <dt class="venue">Venue:</dt>
+                                    <dt class="venue"><h6>Venue</h6></dt>
                                     <dd>.........</dd>
                                 </dl>
-                            </ol>
+                            </div>
                         </div>
-                    </li>
-                </ul>
-            </table>
-        </div>
+                    </div>
+                </li>
+            </ul>
 
+        </div>
     </main>
 
     <footer class="page-footer">
