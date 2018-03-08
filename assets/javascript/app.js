@@ -11,6 +11,9 @@ $(document).ready(function () {
 
 	// Collapsible for main content
 	$('.collapsible').collapsible();
+
+	// For Parallax BKG
+	$('.parallax').parallax();
 });
 
 $("#copyright-year").text(moment().year());
@@ -29,21 +32,21 @@ $("#add_artist").on('click', function (event) {
 	location = location.replace(/\s+/g, "+");
 	console.log(location);
 	var date = $("#date").val();
+	var startDate = moment(date).format('YYYY-MM-DD') + "T00:00:00Z";
+	var endDate = moment(date).add(1, 'month').format('YYYY-MM-DD') + "T00:00:00Z"
 	console.log(date);
 	var ticketmasterKey = "GMb9kWGBfHFrWOyKbZNww60Bsf54F5LU";
 	// var eventfulKey = "KP59BCKSVm4x73p7";
 	var youtubeKey = "AIzaSyD507r0h_zioKfSsE3U407o7pwH85aK3pg";
 	// var youtubeDataQuery = "https://www.googleapis.com/youtube/v3/search?key=" + youtubeKey + "&part=snippet&q=" + artist + "&topicId=/m/04rlf";
 	// console.log(youtubeDataQuery);
-	var ticketmasterQuery = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketmasterKey + "&classificationName=music&city=" + location;
-	// var eventfulQuery = "http://api.eventful.com/json/events/search?app_key=" + eventfulKey + "&q=" + artist + "&location=" + location + "&c=music";
-	// console.log(eventfulQuery);
+	var ticketmasterQuery = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketmasterKey + "&classificationName=music&city=" + location + "&startDateTime=" + startDate + "&endDateTime=" + endDate;
 
 	$.ajax({
 		url: ticketmasterQuery,
 		method: 'GET'
 	}).then(function (object) {
-		// console.log(object);
+		console.log(object);
 		for (var i = 0 ; i < object._embedded.events.length ; i++) {
 			var event = object._embedded.events[i].name;
 			var artist = object._embedded.events[i]._embedded.attractions["0"].name;
@@ -52,7 +55,9 @@ $("#add_artist").on('click', function (event) {
 			var newArtist = {
 				eventName: object._embedded.events[i].name,
 				artistName: object._embedded.events[i]._embedded.attractions["0"].name,
-				artistSearch: artist.replace(/\s+/g, "+")
+				artistSearch: artist.replace(/\s+/g, "+"),
+				eventDate: object._embedded.events[i].dates.start.localDate,
+				eventTime: object._embedded.events[i].dates.start.localTime
 			}
 			// console.log(newArtist);
 			artistArray.push(newArtist);
