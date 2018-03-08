@@ -1,23 +1,19 @@
 $(document).ready(function () {
 	$('select').formSelect();
-});
+	$('.datepicker').datepicker();
 
-$("#copyright-year").text(moment().year());
-
-// Collapses modal
-$(document).ready(function () {
+	// Collapses modal
 	$('.modal').modal();
 
 	$('#modalTrigger').on('click', function () {
 		$('#modal1').modal('open');
 	});
-});
 
-// Collapsible for main content
-
-$(document).ready(function () {
+	// Collapsible for main content
 	$('.collapsible').collapsible();
 });
+
+$("#copyright-year").text(moment().year());
 
 // Populate collapibles? 
 

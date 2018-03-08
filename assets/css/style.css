@@ -28,8 +28,6 @@ main {
 .form-actions {
     margin: 0;
     text-align: center;
-    
-    
 }
 
 .modal-content {
@@ -57,11 +55,9 @@ main {
 }
 
 .collapsible {
-    width: 1257px;
+    width: auto;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0 auto;
 }
 
 .collapsible-body {

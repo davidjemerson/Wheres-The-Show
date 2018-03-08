@@ -26,7 +26,7 @@
                             <div class="modal-content">
                                 <h4>Info</h4>
                                 <p>Welcome to Where's the show! On this website you will be able to search upcoming shows where
-                                    you are located. You can search by artist name, location and by dates.
+                                    you are located. You can search concerts by location and date.
                                 </p>
                             </div>
                         </div>
@@ -43,22 +43,13 @@
                             <div class="row">
                                 <form class="col s12">
                                     <div class="row no-padding">
-                                        <div class="input-field col m4 s12">
-                                            <label class="active" for="artist_name">Artist Name</label>
-                                            <input id="artist_name" type="text" class="validate" placeholder="Enter artist name">
-                                        </div>
-                                        <div class="input-field col m4 s12">
-                                            <label class="active" for="location">Your Location</label>
+                                        <div class="input-field col m6 s12">
+                                            <label for="location">Your Location</label>
                                             <input id="location" type="text" class="validate" placeholder="Enter your location">
                                         </div>
-                                        <div class="input-field col m4 s12">
-                                            <label class="active">Materialize Select</label>
-                                            <select>
-                                                <option value="" disabled="disabled" selected="selected">Choose your option</option>
-                                                <option value="1">30</option>
-                                                <option value="2">60</option>
-                                                <option value="3">90</option>
-                                            </select>
+                                        <div class="input-field col m6 s12">
+                                            <label for="date">Select Date</label>
+                                            <input id="date" type="text" class="datepicker">
                                         </div>
                                     </div>
                                     <div class="row no-padding">
@@ -79,31 +70,32 @@
     </header>
 
     <main>
-        <table>
-            <ul class="collapsible">
-                <li>
-                    <div class="collapsible-header">
-                        <i class="material-icons">queue_music</i>Band Name</div>
-                    <div class="collapsible-body">
-                        <ol>
-                            <iframe name="ThumbNail"></iframe>
-                            <dl>
-                                <dt class="info">Info:</dt>
-                                <dd>......</dd>
-                                <br>
-                                <dt class="dates">Dates:</dt>
-                                <dd>.......</dd>
-                                <br>
-                                <dt class="venue">Venue:</dt>
-                                <dd>.........</dd>
-                            </dl>
-
-                        </ol>
-
-                    </div>
-                </li>
-            </ul>
-        </table>
+        <div class="container">
+            <table>
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header">
+                            <i class="material-icons">queue_music</i>Band Name
+                        </div>
+                        <div class="collapsible-body">
+                            <ol>
+                                <iframe id="thumbnail"></iframe>
+                                <dl>
+                                    <dt class="info">Info:</dt>
+                                    <dd>......</dd>
+                                    <br>
+                                    <dt class="dates">Dates:</dt>
+                                    <dd>.......</dd>
+                                    <br>
+                                    <dt class="venue">Venue:</dt>
+                                    <dd>.........</dd>
+                                </dl>
+                            </ol>
+                        </div>
+                    </li>
+                </ul>
+            </table>
+        </div>
 
     </main>
 
