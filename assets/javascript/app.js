@@ -54,7 +54,9 @@ $("#add_artist").on('click', function (event) {
 				artistName: object._embedded.events[i]._embedded.attractions["0"].name,
 				artistSearch: artist.replace(/\s+/g, "+") + "+music",
 				eventDate: object._embedded.events[i].dates.start.localDate,
-				eventTime: object._embedded.events[i].dates.start.localTime
+				eventTime: object._embedded.events[i].dates.start.localTime,
+				eventVenue: object._embedded.events[i]._embedded.venues["0"].name,
+				ticketmasterLink: object._embedded.events[i].url
 			}
 			// console.log(newArtist);
 			artistArray.push(newArtist);
@@ -64,7 +66,7 @@ $("#add_artist").on('click', function (event) {
 		if (artistArray.length > 0) {
 			$("#showHolder").html("");
 			for (var i = 0 ; i < artistArray.length ; i++) {
-				var artistBlock = "<li id='" + artistArray[i].artistSearch + "' class='artist-name'><div class='collapsible-header valign-wrapper'><i class='material-icons md-36'>queue_music</i><h5>" + artistArray[i].eventName + "</h5></div><div class='collapsible-body'><div class=row><div class='col m4 s12'><img class='thumbnail' src='http://via.placeholder.com/256x144'></img><p class='no-margin center-align'>(click thumbnail to open video)</p></div><div class='col m8 s12'><dl><dt class='info'><h6>Info</h6></dt><dd>......</dd><br><dt class='dates'><h6>Dates</h6></dt><dd>.......</dd><br><dt class='venue'><h6>Venue</h6></dt><dd>.........</dd></dl></div></div></div></li>";
+				var artistBlock = "<li id='" + artistArray[i].artistSearch + "' class='artist-name'><div class='collapsible-header valign-wrapper'><i class='material-icons md-36'>queue_music</i><h5>" + artistArray[i].eventName + "</h5></div><div class='collapsible-body'><div class=row><div class='col m4 s12'><img class='thumbnail' src='http://via.placeholder.com/256x144'></img><p class='no-margin center-align'>(click thumbnail to open video)</p></div><div class='col m8 s12'><dl><dt class='info'><h6>Info</h6></dt><dd><a href='" + artistArray[i].ticketmasterLink + "' target='_blank'>Event Details at TicketMaster</a></dd><br><dt class='dates'><h6>When</h6></dt><dd>" + moment(artistArray[i].eventDate + " " + artistArray[i].eventTime).format("dddd, MMMM Do YYYY, h:mm a") + "</dd><br><dt class='venue'><h6>Venue</h6></dt><dd>" + artistArray[i].eventVenue + "</dd></dl></div></div></div></li>";
 				$("#showHolder").prepend(artistBlock);
 			}
 		}
