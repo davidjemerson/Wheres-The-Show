@@ -27,6 +27,8 @@ $('#btn-primary').on('shown.bs.modal', function () {
 var artistArray = [];
 var youtubeKey = "AIzaSyD507r0h_zioKfSsE3U407o7pwH85aK3pg";
 var ticketmasterKey = "GMb9kWGBfHFrWOyKbZNww60Bsf54F5LU";
+var location = getCurrentPosition()
+console.log(location);
 
 $("#add_artist").on('click', function (event) {
 	event.preventDefault();
@@ -37,7 +39,7 @@ $("#add_artist").on('click', function (event) {
 	var startDate = moment(date).format('YYYY-MM-DD') + "T00:00:00Z";
 	var endDate = moment(date).add(1, 'month').format('YYYY-MM-DD') + "T00:00:00Z"
 	console.log(date);
-	var ticketmasterQuery = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketmasterKey + "&classificationName=music&city=" + location + "&startDateTime=" + startDate + "&endDateTime=" + endDate + "&size=10";
+	var ticketmasterQuery = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketmasterKey + "&classificationName=music&city=" + location + "&startDateTime=" + startDate + "&endDateTime=" + endDate + "&size=10&sort=date,desc";
 
 	$.ajax({
 		url: ticketmasterQuery,
@@ -46,16 +48,16 @@ $("#add_artist").on('click', function (event) {
 		console.log(object);
 		for (var i = 0; i < object._embedded.events.length; i++) {
 			var event = object._embedded.events[i].name;
-			var artist = object._embedded.events[i]._embedded.attractions["0"].name;
+			var artist = object._embedded.events[i]._embedded.attractions[0].name;
 			// console.log("Artist Name: " + artist);
 			var artistForSearch = artist.replace(/\s+/g, "+");
 			var newArtist = {
 				eventName: object._embedded.events[i].name,
-				artistName: object._embedded.events[i]._embedded.attractions["0"].name,
+				artistName: object._embedded.events[i]._embedded.attractions[0].name,
 				artistSearch: artist.replace(/\s+/g, "+") + "+music",
 				eventDate: object._embedded.events[i].dates.start.localDate,
 				eventTime: object._embedded.events[i].dates.start.localTime,
-				eventVenue: object._embedded.events[i]._embedded.venues["0"].name,
+				eventVenue: object._embedded.events[i]._embedded.venues[0].name,
 				ticketmasterLink: object._embedded.events[i].url
 			}
 			// console.log(newArtist);
