@@ -21,13 +21,12 @@ $("#copyright-year").text(moment().year());
 
 $('#btn-primary').on('shown.bs.modal', function () {
 
-	$('#myInput').focus()
-})
+	$('#myInput').focus();
+});
 
 var artistArray = [];
 var youtubeKey = "AIzaSyD507r0h_zioKfSsE3U407o7pwH85aK3pg";
 var ticketmasterKey = "GMb9kWGBfHFrWOyKbZNww60Bsf54F5LU";
-var location = getCurrentPosition()
 console.log(location);
 
 $("#add_artist").on('click', function (event) {
@@ -59,10 +58,10 @@ $("#add_artist").on('click', function (event) {
 				eventTime: object._embedded.events[i].dates.start.localTime,
 				eventVenue: object._embedded.events[i]._embedded.venues[0].name,
 				ticketmasterLink: object._embedded.events[i].url
-			}
+			};
 			// console.log(newArtist);
 			artistArray.push(newArtist);
-		}
+		};
 		console.log(artistArray);
 
 		if (artistArray.length > 0) {
@@ -70,11 +69,11 @@ $("#add_artist").on('click', function (event) {
 			for (var i = 0; i < artistArray.length; i++) {
 				var artistBlock = "<li id='" + artistArray[i].artistSearch + "' class='artist-name'><div class='collapsible-header valign-wrapper'><i class='material-icons md-36'>queue_music</i><h5>" + artistArray[i].eventName + "</h5></div><div class='collapsible-body'><div class=row><div class='col m4 s12 center'><a class='vid-link' href='' target=''><div class='video-container'><img class='thumbnail responsive-img' src=''></img><img class='playBtn' src='assets/images/ic_play_circle_outline_white_48dp_2x.png'></img></div></a><p class='no-margin center-align'>(click thumbnail to open video)</p></div><div class='col m8 s12'><dl><dt class='info'><h6>Info</h6></dt><dd><a href='" + artistArray[i].ticketmasterLink + "' target='_blank'>Event Details at TicketMaster</a></dd><br><dt class='dates'><h6>When</h6></dt><dd>" + moment(artistArray[i].eventDate + " " + artistArray[i].eventTime).format("dddd, MMMM Do YYYY, h:mm a") + "</dd><br><dt class='venue'><h6>Venue</h6></dt><dd>" + artistArray[i].eventVenue + "</dd></dl></div></div></div></li>";
 				$("#showHolder").prepend(artistBlock);
-			}
-		}
+			};
+		};
 
-	})
-})
+	});
+});
 
 $("body").on('click', ".artist-name", function (event) {
 	$(".thumbnail").attr("src", "");
@@ -95,7 +94,5 @@ $("body").on('click', ".artist-name", function (event) {
 		$(".vid-link").attr("href", vidLink);
 		$(".vid-link").attr("target", '_blank');
 		$(".thumbnail").attr("src", vidThumb);
-	})
-})
-
-$("#copyright-year").text(moment().year());
+	});
+});
