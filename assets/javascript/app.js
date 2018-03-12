@@ -60,11 +60,11 @@ $("#add_artist").on('click', function (event) {
 	var startDate = moment(date).format('YYYY-MM-DD') + "T00:00:00Z";
 	var endDate = moment(date).add(7, 'days').format('YYYY-MM-DD') + "T00:00:00Z"
 	console.log(date);
-	if (userLocation === "empty" || reqLocation !== "") {
+	if (lat !== "") {
 		ticketmasterQuery = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketmasterKey + "&classificationName=music&latlong=" + lat + "," + lng + "&radius=30&startDateTime=" + startDate + "&endDateTime=" + endDate + "&size=50&sort=date,desc";
 	}
 	else {
-		ticketmasterQuery = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketmasterKey + "&latlong=" + userLocation.coords.latitude + "," + userLocation.coords.longitude + "&radius=50&classificationName=music&startDateTime=" + startDate + "&endDateTime=" + endDate + "&size=50&sort=date,desc";
+		ticketmasterQuery = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketmasterKey + "&city=" + reqLocation + "&radius=50&classificationName=music&startDateTime=" + startDate + "&endDateTime=" + endDate + "&size=50&sort=date,desc";
 	}
 
 	console.log(ticketmasterQuery);
