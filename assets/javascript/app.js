@@ -54,6 +54,7 @@ google.maps.event.addListener(autocomplete, 'place_changed', function() {
 
 $("#add_artist").on('click', function (event) {
 	event.preventDefault();
+	artistArray = [];
 	reqLocation = $("#location").val().trim();
 	reqLocation = reqLocation.replace(/\s+/g, "+");
 	var date = $("#date").val();
