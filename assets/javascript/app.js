@@ -30,17 +30,27 @@ var ticketmasterKey = "GMb9kWGBfHFrWOyKbZNww60Bsf54F5LU";
 var userLocation = "empty";
 var ticketmasterQuery = "";
 var reqLocation = "";
+var cityInput  = document.getElementById('location');
+var autocomplete = new google.maps.places.Autocomplete(cityInput, {types: ['geocode']});
+var lat = "";
+var long = "";
 
-function logPosition(o) {
-	userLocation = o;
-	console.log(userLocation);
-}
+google.maps.event.addListener(autocomplete, 'place_changed', function() {
+	reqLocation = autocomplete.getPlace();
+	lat = reqLocation.geometry.location.lat();
+	lng = reqLocation.geometry.location.lng();
+})
 
-function logError(o) {
-	console.log("failed to get user location");
-}
+// function logPosition(o) {
+// 	userLocation = o;
+// 	console.log(userLocation);
+// }
 
-navigator.geolocation.getCurrentPosition(logPosition, logError);
+// function logError(o) {
+// 	console.log("failed to get user location");
+// }
+
+// navigator.geolocation.getCurrentPosition(logPosition, logError);
 
 $("#add_artist").on('click', function (event) {
 	event.preventDefault();
@@ -51,7 +61,7 @@ $("#add_artist").on('click', function (event) {
 	var endDate = moment(date).add(7, 'days').format('YYYY-MM-DD') + "T00:00:00Z"
 	console.log(date);
 	if (userLocation === "empty" || reqLocation !== "") {
-		ticketmasterQuery = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketmasterKey + "&classificationName=music&city=" + reqLocation + "&startDateTime=" + startDate + "&endDateTime=" + endDate + "&size=50&sort=date,desc";
+		ticketmasterQuery = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketmasterKey + "&classificationName=music&latlong=" + lat + "," + lng + "&radius=30&startDateTime=" + startDate + "&endDateTime=" + endDate + "&size=50&sort=date,desc";
 	}
 	else {
 		ticketmasterQuery = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + ticketmasterKey + "&latlong=" + userLocation.coords.latitude + "," + userLocation.coords.longitude + "&radius=50&classificationName=music&startDateTime=" + startDate + "&endDateTime=" + endDate + "&size=50&sort=date,desc";
