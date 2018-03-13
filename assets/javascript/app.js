@@ -38,13 +38,13 @@ var ticketmasterQuery = "";
 
 // variables for the Google Places api
 var reqLocation = "";
-var cityInput  = document.getElementById('location');
-var autocomplete = new google.maps.places.Autocomplete(cityInput, {types: ['geocode']});
+var cityInput = document.getElementById('location');
+var autocomplete = new google.maps.places.Autocomplete(cityInput, { types: ['geocode'] });
 var lat = "";
 var long = "";
 
 // watches the city field for updated entry and returns the latitude and longitude of the result
-google.maps.event.addListener(autocomplete, 'place_changed', function() {
+google.maps.event.addListener(autocomplete, 'place_changed', function () {
 	reqLocation = autocomplete.getPlace();
 	lat = reqLocation.geometry.location.lat();
 	lng = reqLocation.geometry.location.lng();
@@ -61,21 +61,36 @@ google.maps.event.addListener(autocomplete, 'place_changed', function() {
 
 // navigator.geolocation.getCurrentPosition(logPosition, logError);
 
+$("#detect-location").on("click", function () {
+	if ("geolocation" in navigator){ //check geolocation available 
+		//try to get user current location using getCurrentPosition() method
+		navigator.geolocation.getCurrentPosition(function(position){ 
+			console.log("Found your location \nLat : "+position.coords.latitude+" \nLang :"+ position.coords.longitude);
+			lat = position.coords.latitude;
+			lng = position.coords.longitude;
+			$("#location").val(position.coords.latitude + ", " + position.coords.longitude);
+		});
+	}else{
+		console.log("Browser doesn't support geolocation!");
+		alert("Browser doesn't support geolocation!");
+	};
+});
+
 // runs on each search
 $("#add_artist").on('click', function (event) {
 	event.preventDefault();
-	
+
 	// clears an previous search results
 	artistArray = [];
 
 	// in case the user doesn't take an autocomplete suggestion, this sets a city search variable and replaces spaces with +
 	reqLocation = $("#location").val().trim();
 	reqLocation = reqLocation.replace(/\s+/g, "+");
-	
+
 	// grabs the date and formats it for search using moment
 	var date = $("#date").val();
 	var startDate = moment(date).format('YYYY-MM-DD') + "T00:00:00Z";
-	var endDate = moment(date).add(7, 'days').format('YYYY-MM-DD') + "T00:00:00Z"
+	var endDate = moment(date).add(14, 'days').format('YYYY-MM-DD') + "T00:00:00Z"
 
 	// if the user took a google suggestion we will have a lat value and not an empty string so we search by lat an lng. Otherwise we search by city name.
 	if (lat !== "") {
@@ -103,7 +118,7 @@ $("#add_artist").on('click', function (event) {
 			var newArtist = {
 				eventName: event,
 				artistName: event,
-				
+
 				// this is the term we will be using to search for our youtube video
 				artistSearch: event.replace(/\s+/g, "+") + "+music",
 				eventDate: object._embedded.events[i].dates.start.localDate,
