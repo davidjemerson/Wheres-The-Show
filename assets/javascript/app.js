@@ -79,7 +79,7 @@ $("#detect-location").on("click", function () {
 });
 
 // runs on each search
-$("#add_artist").on('click', function (event) {
+$("#search-for-shows").on('click', function (event) {
 	event.preventDefault();
 
 	// clears an previous search results
