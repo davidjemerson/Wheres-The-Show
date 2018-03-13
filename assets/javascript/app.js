@@ -63,7 +63,7 @@ google.maps.event.addListener(autocomplete, 'place_changed', function () {
 // navigator.geolocation.getCurrentPosition(logPosition, logError);
 
 $("#detect-location").on("click", function () {
-	$("#location").attr("placeholder", "Getting your current location...");
+	$("#location").val("Getting your current location...");
 	if ("geolocation" in navigator){ //check geolocation available 
 		//try to get user current location using getCurrentPosition() method
 		navigator.geolocation.getCurrentPosition(function(position){ 
