@@ -42,6 +42,7 @@ var cityInput = document.getElementById('location');
 var autocomplete = new google.maps.places.Autocomplete(cityInput, { types: ['geocode'] });
 var lat = "";
 var long = "";
+var date = "";
 
 // watches the city field for updated entry and returns the latitude and longitude of the result
 google.maps.event.addListener(autocomplete, 'place_changed', function () {
@@ -89,9 +90,15 @@ $("#add_artist").on('click', function (event) {
 	reqLocation = reqLocation.replace(/\s+/g, "+");
 
 	// grabs the date and formats it for search using moment
-	var date = $("#date").val();
-	var startDate = moment(date).format('YYYY-MM-DD') + "T00:00:00Z";
-	var endDate = moment(date).add(14, 'days').format('YYYY-MM-DD') + "T00:00:00Z"
+	date = $("#date").val();
+	if (date !== "") {
+		var startDate = moment(date).format('YYYY-MM-DD') + "T00:00:00Z";
+		var endDate = moment(date).add(14, 'days').format('YYYY-MM-DD') + "T00:00:00Z"
+	}
+	else {
+		var startDate = moment().format('YYYY-MM-DD') + "T00:00:00Z";
+		var endDate = moment().add(14, 'days').format('YYYY-MM-DD') + "T00:00:00Z"
+	}
 
 	// if the user took a google suggestion we will have a lat value and not an empty string so we search by lat an lng. Otherwise we search by city name.
 	if (lat !== "") {
