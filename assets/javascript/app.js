@@ -30,9 +30,6 @@ var artistArray = [];
 var youtubeKey = "AIzaSyD507r0h_zioKfSsE3U407o7pwH85aK3pg";
 var ticketmasterKey = "GMb9kWGBfHFrWOyKbZNww60Bsf54F5LU";
 
-// for use with location services
-// var userLocation = "empty";
-
 // will hold the api url
 var ticketmasterQuery = "";
 
@@ -51,28 +48,17 @@ google.maps.event.addListener(autocomplete, 'place_changed', function () {
 	lng = reqLocation.geometry.location.lng();
 })
 
-// function logPosition(o) {
-// 	userLocation = o;
-// 	console.log(userLocation);
-// }
-
-// function logError(o) {
-// 	console.log("failed to get user location");
-// }
-
-// navigator.geolocation.getCurrentPosition(logPosition, logError);
-
 $("#detect-location").on("click", function () {
 	$("#location").val("Getting your current location...");
-	if ("geolocation" in navigator){ //check geolocation available 
+	if ("geolocation" in navigator) { //check geolocation available 
 		//try to get user current location using getCurrentPosition() method
-		navigator.geolocation.getCurrentPosition(function(position){ 
-			console.log("Found your location \nLat : "+position.coords.latitude+" \nLang :"+ position.coords.longitude);
+		navigator.geolocation.getCurrentPosition(function (position) {
+			console.log("Found your location \nLat : " + position.coords.latitude + " \nLang :" + position.coords.longitude);
 			lat = position.coords.latitude;
 			lng = position.coords.longitude;
 			$("#location").val(position.coords.latitude + ", " + position.coords.longitude);
 		});
-	}else{
+	} else {
 		console.log("Browser doesn't support geolocation!");
 		alert("Browser doesn't support geolocation!");
 	};
