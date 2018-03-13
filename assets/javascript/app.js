@@ -98,6 +98,8 @@ $("#search-for-shows").on('click', function (event) {
 	else {
 		var startDate = moment().format('YYYY-MM-DD') + "T00:00:00Z";
 		var endDate = moment().add(14, 'days').format('YYYY-MM-DD') + "T00:00:00Z"
+		$("#date-label").addClass("active");
+		$("#date").val(moment().format('MMM DD, YYYY'));
 	}
 
 	// if the user took a google suggestion we will have a lat value and not an empty string so we search by lat an lng. Otherwise we search by city name.
@@ -154,6 +156,9 @@ $("#search-for-shows").on('click', function (event) {
 		};
 
 	});
+
+	$("#location").val("");
+	$("#location").attr("placeholder", "Enter your location");
 });
 
 $("body").on('click', ".artist-name", function (event) {
